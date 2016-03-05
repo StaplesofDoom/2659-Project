@@ -1,6 +1,4 @@
-Tanks!
-
-2659 Course Project
+Tanks! - 2659 Course Project
 
 Edison Mendoza & Paul Staples
 
