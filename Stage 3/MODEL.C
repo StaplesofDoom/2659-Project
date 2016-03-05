@@ -2,10 +2,10 @@
 
 /* Initializers */
 
-void initialize_tanks(tank *player_one, tank *player_two){
+void initialize_tanks(model *gameModel){
 
-	player_one->x = 25;
-	player_one->y = 25;
+	gameModel->One.x = 25;
+/*	player_one->y = 25;
 	player_one->delta_x = 25;
 	player_one->delta_y = 25;
 	player_one->aim_angle = 45;
@@ -17,8 +17,9 @@ void initialize_tanks(tank *player_one, tank *player_two){
 	player_two->delta_y = 50;
 	player_two->aim_angle = 75;
 	player_two->player_number = 2;
+	*/
 }
-
+/*
 void initialize_health(healthBar *player_one, healthBar *player_two){
 	player_one->x = 125;
 	player_one->y = 125;
@@ -38,9 +39,9 @@ void initialize_score(scoreCounter *counter){
 	counter->player_one_score = 0;
 	counter->player_two_score = 0;
 }
-
+*/
 /* Behaviour functions */
-
+/*
 float physics_calculator(tankShell *shell, float angle, int time, float yKnotIn, float xKnotIn){
 
 	int timeIn;
@@ -128,3 +129,4 @@ int check_collisions(tank *tankCollide){
 void make_collision_array(){
 	
 }
+*/
