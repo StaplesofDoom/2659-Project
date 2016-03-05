@@ -1,5 +1,5 @@
 #include "event.h"
-
+/*
 void request_tank_move(tank *tankMove){
 	int success;
 
@@ -31,3 +31,4 @@ int npc_fire(){
 void remove_shell(){
 
 }
+*/
