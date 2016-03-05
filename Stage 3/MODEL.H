@@ -53,22 +53,38 @@ typedef struct{
 	/* bitmap for player indicator here */
 }playerIndicator;
 
+typedef struct{
+	tank One;
+	tank Two;
+	tankShell p1_shell;
+	tankShell p2_shell;
+	scoreCounter counter;
+	healthBar p1_health;
+	healthBar p2_health;
+	terrain floor;
+	playerIndicator p1_indicator;
+	playerIndicator p2_indicator;
+	
+}model;
+	
+	
 /* Behavior Functions */
-float physics_calculator(tankShell *shell, float angle, int time, float yKnotIn, float xKnotIn);
-void move_tank(tank *tankToMove);
-void move_turret(tank *tankToAim, int direction);
-void move_shell(tankShell *shell);
-void tank_fire(tank *tankToFire);
+float physics_calculator(model *gameModel);
+void move_tank(model *gameModel);
+void move_turret(model *gameModel);
+void move_shell(model *gameModel);
+void tank_fire(model *gameModel);
 tankShell create_shell();
-void damage_tank(tank *tankToDamage);
-int  remove_health(healthBar *player_health);
+void damage_tank(model *gameModel);
+int  remove_health(model *gameModel);
 int score();
-int check_collisions(tank *tankCollide);
+int check_collisions(model *gameModel);
 
 
 /* Initializers */
-void initialize_tanks(tank *player_one, tank *player_two);
-void initialize_health(healthBar *player_one, healthBar *player_two);
-void initialize_score(scoreCounter *counter);  
+void initialize_tanks(model *gameModel);
+void initialize_health(model *gameModel);
+void initialize_score(model *gameModel); 
+void initialize_collision_array(model *gameModel);
 
 #endif
