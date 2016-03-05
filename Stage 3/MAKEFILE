@@ -1,0 +1,11 @@
+test: test_model.o model.o event.o
+	cc68x -g test_model.o model.o event.o -o test
+
+test_model.o: test_model.c test_model.h
+	cc68x -g -c test_model.c
+
+model.o: model.c model.h
+	cc68x -g -c model.c
+
+event.o: event.c event.h
+	cc68x -g -c event.c
