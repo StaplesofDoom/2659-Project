@@ -5,120 +5,63 @@
 void initialize_tanks(model *gameModel){
 
 	gameModel->One.x = 25;
-/*	player_one->y = 25;
-	player_one->delta_x = 25;
-	player_one->delta_y = 25;
-	player_one->aim_angle = 45;
-	player_one->player_number = 1;
+	gameModel->One.y = 25;
+	gameModel->One.delta_x = 25;
+	gameModel->One.delta_y = 25;
+	gameModel->One.aim_angle = 45;
+	gameModel->One.player_number = 1;
 
-	player_two->x = 50;
-	player_two->y = 50;
-	player_two->delta_x = 50;
-	player_two->delta_y = 50;
-	player_two->aim_angle = 75;
-	player_two->player_number = 2;
-	*/
-}
-/*
-void initialize_health(healthBar *player_one, healthBar *player_two){
-	player_one->x = 125;
-	player_one->y = 125;
-	player_one->amount_of_health = 3;
-	player_one->player_number = 1;
-
-	player_two->x = 250;
-	player_two->y = 250;
-	player_two->amount_of_health = 3;
-	player_two->player_number = 2;
+	gameModel->Two.x = 25;
+	gameModel->Two.y = 25;
+	gameModel->Two.delta_x = 25;
+	gameModel->Two.delta_y = 25;
+	gameModel->Two.aim_angle = 45;
+	gameModel->Two.player_number = 1;
+	
 }
 
-void initialize_score(scoreCounter *counter){
+void initialize_health(model *gameModel){
+	gameModel->p1_health.x = 125;
+	gameModel->p1_health.y = 125;
+	gameModel->p1_health.amount_of_health = 3;
+	gameModel->p1_health.player_number = 1;
 
-	counter->x = 200;
-	counter->y = 200;
-	counter->player_one_score = 0;
-	counter->player_two_score = 0;
+	gameModel->p2_health.x = 250;
+	gameModel->p2_health.y = 250;
+	gameModel->p2_health.amount_of_health = 3;
+	gameModel->p2_health.player_number = 2;
 }
-*/
+
+void initialize_score(model *gameModel){
+
+	gameModel->counter.x = 200;
+	gameModel->counter.y = 200;
+	gameModel->counter.player_one_score = 0;
+	gameModel->counter.player_two_score = 0;
+}
+
 /* Behaviour functions */
-/*
-float physics_calculator(tankShell *shell, float angle, int time, float yKnotIn, float xKnotIn){
 
-	int timeIn;
-	float angle_percentage;
-	float yKnot = yKnotIn;
-	float xKnot = xKnotIn;
-	
-	angle_percentage = (angle / 100);
-	printf("%f", angle_percentage);
-	timeIn = time;
-	
-	yKnot = (yKnot - (time*GRAVITY));
-	xKnot = (xKnot * angle_percentage); 
-	
-	putchar(' ');
-	printf("%f", xKnot);
-	putchar(' ');
-	printf("%f", yKnot);
-	putchar('\n');
-	
-	
-	return yKnot;
+float physics_calculator(model *gameModel){
+
+	return 0;
 }
 
-void move_tank(tank *tankToMove){
+void move_tank(int tankNumber, model *gameModel){
 
-	tankToMove->x += tankToMove->delta_x;
+	if(tankNumber == 1)
+		gameModel->One.x += gameModel->One.delta_x;
+	else
+		gameModel->Two.x += gameModel->Two.delta_x;
 
-}
-
-void move_turret(tank *tankToAim, int direction){
-
-	if(direction == 1){
-		tankToAim->aim_angle += 5; 
-	}
-	else{
-		tankToAim->aim_angle -= 5;
-	}
-}
-
-void move_shell(tankShell *shell){
-
-}
-
-tankShell create_shell(){
-
-	tankShell shell;
-
-	return shell;
-
-}
-
-void damage_tank(tank *tankToDamage){
-
-}
-
-int remove_health(healthBar *player_health){
-
-	int health;
-	
-	player_health->amount_of_health -= 1;
-	
-	return player_health->amount_of_health;
 }
 
 int score(int playerNumber, scoreCounter *counter){
 
-	if(playerNumber == 1){
-		counter->player_one_score += 1;
-		return counter->player_one_score;
-	}
-	else
-		counter->player_two_score += 1;
-		return counter->player_two_score;
+	return 0;
 }
 
-int check_collisions(tank *tankCollide){
+int check_collisions(){
 	int collide;
 
 	collide = TRUE;
@@ -129,4 +72,3 @@ int check_collisions(tank *tankCollide){
 void make_collision_array(){
 	
 }
-*/

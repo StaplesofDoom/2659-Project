@@ -70,13 +70,12 @@ typedef struct{
 	
 /* Behavior Functions */
 float physics_calculator(model *gameModel);
-void move_tank(model *gameModel);
+void move_tank(int tankNumber, model *gameModel);
 void move_turret(model *gameModel);
 void move_shell(model *gameModel);
 void tank_fire(model *gameModel);
-tankShell create_shell();
-void damage_tank(model *gameModel);
-int  remove_health(model *gameModel);
+void damage_tank(int tankNumber, model *gameModel);
+int  remove_health(int tankNumber, model *gameModel);
 int score();
 int check_collisions(model *gameModel);
 
