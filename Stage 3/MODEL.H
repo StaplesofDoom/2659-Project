@@ -10,9 +10,9 @@
 #define FALSE 0
 
 typedef struct{			/* All generic x and y integers can */
-	int x;				/* be assumed to be screen positions */
-	int y;				/* All other variables are self- */
-	int delta_x;		/* explanatory */
+	int x;				/* be assumed to be screen positions*/
+	int y;				/* All other variables are self- 	*/
+	int delta_x;		/* explanatory 						*/
 	int delta_y;
 	int health;
 	float aim_angle;
@@ -25,6 +25,7 @@ typedef struct{
 	int x;
 	int y;
 	int flight_angle;
+	int on_screen;
 }tankShell;
 
 typedef struct{
@@ -37,7 +38,6 @@ typedef struct{
 typedef struct{
 	int x;
 	int y;
-	
 }terrain;	
 
 typedef struct{
@@ -50,7 +50,6 @@ typedef struct{
 typedef struct{
 	int x;
 	int y;
-	/* bitmap for player indicator here */
 }playerIndicator;
 
 typedef struct{
@@ -64,15 +63,24 @@ typedef struct{
 	terrain floor;
 	playerIndicator p1_indicator;
 	playerIndicator p2_indicator;
-	
+	int collisions[3][2];			/* 3 Objects are tracked, both tanks and the floor */ 
+									/* with a pair of coordinates for each 			   */
 }model;
 	
 	
 /* Behavior Functions */
+void move_tank(model *gameModel);
+void move_turret(model *gameModel);
+void move_shell(model *gameModel);
+int update_score(model *gameModel, int playerNumber);
+int	update_health(model *gameModel, int playerNumber); 
 float physics_calculator(model *gameModel);
-int score();
-int check_collisions(model *gameModel);
 
+
+/* Event Request Functions */
+void request_tank_move();
+void request_turret_move();
+void request_fire();
 
 /* Initializers */
 void initialize_model(model *gameModel); 

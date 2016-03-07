@@ -31,10 +31,19 @@ void initialize_model(model *gameModel){
 	gameModel->counter.y = 200;
 	gameModel->counter.player_one_score = 0;
 	gameModel->counter.player_two_score = 0;
-
+	
+	gameModel->p1_shell.on_screen = 0;
+	gameModel->p2_shell.on_screen = 0;
 }
 
 void initialize_collision_array(model *gameModel){
+	
+	gameModel->collisions[0][0] = gameModel->One.x;
+	gameModel->collisions[0][1] = gameModel->One.y;
+	gameModel->collisions[1][0] = gameModel->Two.x;
+	gameModel->collisions[1][1] = gameModel->Two.y;
+	gameModel->collisions[2][0] = gameModel->floor.x;
+	gameModel->collisions[2][1] = gameModel->floor.y;
 }
 /* Behaviour functions */
 
@@ -42,17 +51,3 @@ float physics_calculator(model *gameModel){
 
 	return 0;
 }
-
-int score(int playerNumber, scoreCounter *counter){
-
-	return 0;
-}
-
-int check_collisions(){
-	int collide;
-
-	collide = TRUE;
-
-	return collide;
-}
-
