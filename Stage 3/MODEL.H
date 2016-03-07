@@ -74,8 +74,8 @@ void move_turret(model *gameModel);
 void move_shell(model *gameModel);
 int update_score(model *gameModel, int playerNumber);
 int	update_health(model *gameModel, int playerNumber); 
+int check_collisions(model *gameModel, int x, int y);
 float physics_calculator(model *gameModel);
-
 
 /* Event Request Functions */
 void request_tank_move();
