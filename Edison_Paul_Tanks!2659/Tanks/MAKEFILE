@@ -1,0 +1,57 @@
+all: 
+	make clean
+	make tanks
+	
+clean: 
+	!Rm *.o
+	
+tanks: clr_qk.o set_area.o steem.o isra.o game.o splash.o fonts.o bitmaps.o render.o raster.o model.o event.o psg.o music.o effects.o isr.o
+	cc68x -g clr_qk.o set_area.o steem.o isra.o game.o splash.o fonts.o bitmaps.o render.o raster.o model.o event.o psg.o music.o effects.o isr.o -o tanks
+
+render.o: render.c render.h
+	cc68x -g -c render.c
+
+event.o: event.c event.h
+	cc68x -g -c event.c
+
+game.o: game.c game.h
+	cc68x -g -c game.c
+	
+set_area.o: set_area.s set_area.h 
+	gen -L2 set_area.s
+	
+isra.o: isra.s 
+	gen -L2 isra.s
+	
+clr_qk.o: clr_qk.s clr_qk.h
+	gen -L2 clr_qk.s	
+
+steem.o: steem.s steem.h
+	gen -L2 steem.s	
+
+model.o: model.c model.h
+	cc68x -g -c model.c
+	
+raster.o: raster.c raster.h
+	cc68x -g -c raster.c
+
+isr.o: isr.c isr.h
+	cc68x -g -c isr.c
+	
+psg.o:	psg.c psg.h
+	cc68x -g -c psg.c
+	
+music.o: music.c music.h
+	cc68x -g -c music.c
+	
+effects.o: effects.c effects.h
+	cc68x -g -c effects.c
+
+bitmaps.o: bitmaps.c bitmaps.h
+	cc68x -g -c bitmaps.c
+
+fonts.o: fonts.c bitmaps.h
+	cc68x -g -c fonts.c
+	
+splash.o: splash.c bitmaps.h
+	cc68x -g -c splash.c	
